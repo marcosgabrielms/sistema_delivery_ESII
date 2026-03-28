@@ -1,0 +1,144 @@
+/* ================= VARIÁVEIS DE DESIGN ================= */
+:root {
+    --cor-primaria: #2D6A4F;
+    --cor-secundaria: #E9C46A;
+    --cor-fundo: #F8F9FA;
+    --cor-texto: #2B2D42;
+    --cor-texto-claro: #8D99AE;
+    --cor-card: #FFFFFF;
+    --sombra-leve: 0 4px 12px rgba(0,0,0,0.05);
+    --sombra-forte: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ================= BASE ================= */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+body { background-color: var(--cor-fundo); color: var(--cor-texto); overflow-x: hidden; }
+
+/* ================= HEADER ================= */
+header {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--sombra-forte);
+}
+.logo { font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.carrinho-btn {
+    background-color: white;
+    color: var(--cor-primaria);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.carrinho-btn:hover { transform: translateY(-2px); box-shadow: var(--sombra-leve); }
+.badge { background: var(--cor-secundaria); color: #000; padding: 2px 8px; border-radius: 12px; font-size: 0.9rem; }
+
+/* ================= MAIN & TYPOGRAPHY ================= */
+main { padding: 30px 5%; max-width: 1100px; margin: 0 auto; min-height: 80vh; }
+.header-sessao { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+h2 { color: var(--cor-primaria); font-weight: 600; font-size: 1.6rem;}
+#btn-voltar {
+    background: white; border: 1px solid #ddd; padding: 8px 15px; border-radius: 8px;
+    cursor: pointer; font-weight: 600; color: var(--cor-texto); transition: 0.2s;
+}
+#btn-voltar:hover { background: #eee; }
+
+/* ================= GRID E CARDS COM IMAGEM ================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    animation: fadeIn 0.4s ease-out; 
+}
+
+.card {
+    background-color: var(--cor-card);
+    border-radius: 16px;
+    overflow: hidden; /* Corta a imagem arredondada */
+    box-shadow: var(--sombra-leve);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover { transform: translateY(-8px); box-shadow: var(--sombra-forte); }
+
+.card-img { width: 100%; height: 160px; object-fit: cover; }
+.card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 5px; color: var(--cor-texto); }
+.card-desc { font-size: 0.9rem; color: var(--cor-texto-claro); margin-bottom: 15px; flex-grow: 1; }
+.card-info { display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+.tempo { color: var(--cor-texto-claro); font-size: 0.9rem; }
+.preco { color: var(--cor-primaria); font-size: 1.2rem; }
+
+button.add-btn {
+    background-color: var(--cor-primaria); color: white; border: none;
+    padding: 10px; border-radius: 8px; cursor: pointer; width: 100%;
+    font-weight: 600; font-size: 1rem; margin-top: 15px; transition: 0.3s;
+}
+button.add-btn:hover { background-color: #1b4332; }
+
+/* ================= MODAL DO CARRINHO ================= */
+#overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(3px);
+    z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s;
+}
+#overlay.ativo { opacity: 1; visibility: visible; }
+
+#modal-carrinho {
+    position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
+    background-color: white; box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+    transition: right 0.4s cubic-bezier(0.1, 0.7, 0.1, 1); z-index: 200;
+    display: flex; flex-direction: column;
+}
+#modal-carrinho.aberto { right: 0; } 
+
+.carrinho-header { padding: 20px; background-color: var(--cor-primaria); color: white; display: flex; justify-content: space-between; align-items: center; }
+.fechar-btn { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; transition: 0.2s; }
+.fechar-btn:hover { transform: scale(1.1); color: var(--cor-secundaria); }
+
+.carrinho-body { padding: 20px; flex-grow: 1; overflow-y: auto; }
+.carrinho-vazio { text-align: center; color: var(--cor-texto-claro); margin-top: 50px; font-size: 1.1rem;}
+.carrinho-vazio i { font-size: 3rem; margin-bottom: 15px; color: #ddd; }
+
+.carrinho-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 0; border-bottom: 1px solid #eee;
+}
+.item-detalhes h4 { font-size: 1rem; margin-bottom: 5px; }
+.item-detalhes p { font-size: 0.9rem; color: var(--cor-primaria); font-weight: 600; }
+.btn-remover { background: #ffe3e3; color: #d90429; border: none; padding: 5px 10px; border-radius: 6px; cursor: pointer; }
+
+.carrinho-footer { padding: 20px; border-top: 1px solid #eee; background-color: #fafafa; }
+.total-linha { display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; color: var(--cor-primaria);}
+.finalizar-btn { width: 100%; padding: 15px; background-color: var(--cor-secundaria); color: #000; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: 0.2s; }
+.finalizar-btn:hover { transform: translateY(-2px); box-shadow: var(--sombra-leve); }
+
+/* ================= TOAST NOTIFICATION ================= */
+.toast {
+    visibility: hidden; min-width: 250px; background-color: #333; color: #fff;
+    text-align: center; border-radius: 8px; padding: 16px; position: fixed;
+    z-index: 300; left: 50%; bottom: 30px; transform: translateX(-50%);
+    font-weight: 600; box-shadow: var(--sombra-forte);
+}
+.toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+@keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }

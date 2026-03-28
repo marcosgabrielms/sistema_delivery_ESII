@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshDelivery - App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo" onclick="voltarParaRestaurantes()">
+            <i class="fa-solid fa-motorcycle"></i> FreshDelivery
+        </div>
+        <button class="carrinho-btn" onclick="abrirCarrinho()">
+            <i class="fa-solid fa-cart-shopping"></i> <span class="badge" id="contador-itens">0</span>
+        </button>
+    </header>
+
+    <main>
+        <div class="header-sessao">
+            <button id="btn-voltar" onclick="voltarParaRestaurantes()" style="display: none;">
+                <i class="fa-solid fa-arrow-left"></i> Voltar
+            </button>
+            <h2 id="titulo-sessao">Restaurantes Disponíveis</h2>
+        </div>
+        
+        <div id="grid-conteudo" class="grid">
+            </div>
+    </main>
+
+    <div id="overlay" onclick="fecharCarrinho()"></div>
+
+    <aside id="modal-carrinho">
+        <div class="carrinho-header">
+            <h3><i class="fa-solid fa-basket-shopping"></i> Seu Pedido</h3>
+            <button class="fechar-btn" onclick="fecharCarrinho()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="carrinho-body" id="lista-carrinho">
+            </div>
+        <div class="carrinho-footer">
+            <div class="total-linha">
+                <span>Total:</span>
+                <span id="valor-total">R$ 0,00</span>
+            </div>
+            <button class="finalizar-btn" onclick="finalizarPedido()">Finalizar Pedido</button>
+        </div>
+    </aside>
+
+    <div id="toast" class="toast">Mensagem aqui</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
