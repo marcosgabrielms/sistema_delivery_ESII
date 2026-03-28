@@ -1,7 +1,7 @@
 // 1. DADOS SIMULADOS (Com URLs de imagens do Unsplash para visual profissional)
 const restaurantes = [
     { id: 1, nome: "Vegan Life", descricao: "Comida saudável, bowls e orgânicos", tempo: "30-45 min", imagem: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80" },
-    { id: 2, nome: "Mamma Mia Pizza", descricao: "Pizzas artesanais de fermentação natural", tempo: "40-60 min", imagem: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80" },
+    { id: 2, nome: "Giovannis' Pizza", descricao: "Pizzas artesanais de fermentação natural", tempo: "40-60 min", imagem: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80" },
     { id: 3, nome: "Green Burger", descricao: "Hambúrgueres premium e batatas", tempo: "20-40 min", imagem: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" }
 ];
 
