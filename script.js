@@ -152,6 +152,34 @@ function abrirCarrinho() {
     document.getElementById("overlay").classList.add("ativo");
 }
 
+    // 1. Seleciona o botão pelo ID
+const loginBtn = document.getElementById("btn-abrir-login");
+
+if (loginBtn) { // Verificação de segurança: só tenta linkar se o botão existir na página
+    loginBtn.addEventListener("click", () => {
+    console.log("Redirecionando para a tela de login...");
+    window.location.href = "login.html";
+});
+}
+
+function alternarAuth(event) {
+    // Evita que o link '#' recarregue a página
+    event.preventDefault();
+
+    const loginSection = document.getElementById('section-login');
+    const cadastroSection = document.getElementById('section-cadastro');
+
+    // Se o login estiver aparecendo, esconde ele e mostra o cadastro (e vice-versa)
+    if (loginSection.style.display === "none") {
+        loginSection.style.display = "block";
+        cadastroSection.style.display = "none";
+    } else {
+        loginSection.style.display = "none";
+        cadastroSection.style.display = "block";
+    }
+}
+
+
 function fecharCarrinho() {
     document.getElementById("modal-carrinho").classList.remove("aberto");
     document.getElementById("overlay").classList.remove("ativo");
