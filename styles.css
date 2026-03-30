@@ -20,19 +20,20 @@ header {
     color: white;
     padding: 15px 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 100; 
     box-shadow: var(--sombra-forte);
 }
-.logo { font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.logo { font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; margin-right: auto; }
 .carrinho-btn {
     background-color: white;
     color: var(--cor-primaria);
     border: none;
     padding: 10px 18px;
+    margin-right: 8px;
     border-radius: 25px;
     font-size: 1rem;
     font-weight: 600;
@@ -43,6 +44,20 @@ header {
     gap: 8px;
 }
 .carrinho-btn:hover { transform: translateY(-2px); box-shadow: var(--sombra-leve); }
+.perfil-btn {
+    background-color: white;
+    color: var(--cor-primaria);
+    border: none;
+    padding: 10px 14px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.perfil-btn:hover { transform: translateY(-2px); box-shadow: var(--sombra-leve); }
 .badge { background: var(--cor-secundaria); color: #000; padding: 2px 8px; border-radius: 12px; font-size: 0.9rem; }
 
 /* ================= MAIN & TYPOGRAPHY ================= */
@@ -137,6 +152,84 @@ button.add-btn:hover { background-color: #1b4332; }
 .toast.show {
     visibility: visible;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+
+/*  ============ ESTILIZAÇÂO DO LOGIN ============*/
+/* Centralização Total da Página */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Ocupa a altura central da tela */
+    padding: 20px;
+}
+
+/* O Container do Login (Card) */
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 50px 40px;
+    border-radius: 24px; /* Bordas bem arredondadas conforme pedido */
+    text-align: center;
+}
+
+/* Estilização dos Inputs (Maiores e Arredondados) */
+.auth-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre os campos */
+}
+
+.login-input {
+    width: 100%;
+    padding: 18px 25px; /* Mais internos para parecer maior */
+    border: 2px solid #edf2f0; /* Borda suave */
+    border-radius: 15px; /* Bordas arredondadas nos campos */
+    font-size: 1.05rem;
+    background-color: #fcfdfd;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* Efeito de Foco Criativo */
+.login-input:focus {
+    border-color: var(--cor-primaria);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1);
+}
+
+/* Botão em Versão Larga */
+.btn-lg {
+    padding: 18px !important;
+    border-radius: 15px !important;
+    font-size: 1.1rem !important;
+    margin-top: 10px;
+}
+
+/* Detalhes de Texto */
+.auth-header h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+}
+
+.link-cadastro {
+    color: var(--cor-primaria);
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+    margin-top: 5px;
+}
+
+.link-cadastro:hover {
+    text-decoration: underline;
 }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }

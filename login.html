@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FreshDelivery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="login-page">
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-bicycle"></i> FreshDelivery
+        </div>
+    </header>
+
+    <main class="auth-wrapper">
+    <section id="section-login" class="card login-container">
+        <div class="auth-header">
+            <i class="fas fa-bicycle logo-icon"></i>
+            <h2>Bem-vindo!</h2>
+            <p>Entre com seus dados para continuar</p>
+        </div>
+
+        <form id="form-login" class="auth-form">
+            <div class="input-group">
+                <input type="email" class="login-input" placeholder="Seu e-mail" required>
+            </div>
+            <div class="input-group">
+                <input type="password" class="login-input" placeholder="Sua senha" required>
+            </div>
+            <button type="submit" class="finalizar-btn btn-lg">Entrar na Conta</button>
+        </form>
+
+        <div class="auth-footer">
+            <span>Não tem uma conta?</span>
+            <a href="#" class="link-cadastro" onclick="alternarAuth(event)">Faça seu cadastro aqui!</a>
+        </div>
+    </section>
+
+    <section id="section-cadastro" class="card login-container" style="display: none;">
+        <div class="auth-header">
+            <i class="fas fa-user-plus logo-icon"></i>
+            <h2>Criar Conta</h2>
+            <p>Preencha os dados para se cadastrar</p>
+        </div>
+
+        <form id="form-cadastro" class="auth-form">
+            <div class="input-group">
+                <input type="text" class="login-input" placeholder="Nome Completo" required>
+            </div>
+            <div class="input-group">
+                <input type="email" class="login-input" placeholder="E-mail" required>
+            </div>
+            <div class="input-group">
+                <input type="password" class="login-input" placeholder="Crie uma senha" required>
+            </div>
+            <button type="submit" class="finalizar-btn btn-lg">Cadastrar Agora</button>
+        </form>
+
+        <div class="auth-footer">
+            <span>Já tem uma conta?</span>
+            <a href="#" class="link-cadastro" onclick="alternarAuth(event)">Voltar para o Login</a>
+        </div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
